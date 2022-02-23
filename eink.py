@@ -28,9 +28,18 @@ class Eink:
 		
 		self.display.fill(Adafruit_EPD.WHITE)
 		
+	def clearWhite(self):
+		self.display.fill(Adafruit_EPD.WHITE)
 		
-	def text(self, text, x=0, y=0, color=Adafruit_EPD.BLACK, textsize=2):
+	def clearBlack(self):
+		self.display.fill(Adafruit_EPD.BLACK)
+		
+		
+	def lcdText(self, text, x=0, y=0, color=Adafruit_EPD.BLACK, textsize=2):
 		self.display.text(text, x, y, Adafruit_EPD.BLACK, size=textsize)
+		
+	#def text(self, text):
+	
 		
 	def update(self):
 		self.display.display()

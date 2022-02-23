@@ -6,6 +6,7 @@ import board
 from adafruit_epd.epd import Adafruit_EPD
 from PIL import Image, ImageDraw, ImageFont
 
+import subprocess
 
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 ecs = digitalio.DigitalInOut(board.CE0)
@@ -30,7 +31,13 @@ draw = ImageDraw.Draw(image)
 
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", FONTSIZE)
 
-# Draw the city
-draw.text((5, 5), "Hello World!", font=font, fill=BLACK)
+
+uptime = subprocess.Popen(["uptime", "-p"],
+                       stdout=subprocess.PIPE,
+                       universal_newlines=True)
+uptimeText = uptime.stdout.readline()
+
+draw.text((5, 5), uptimeText, font=font, fill=BLACK)
 display.image(image)
 display.display()
+

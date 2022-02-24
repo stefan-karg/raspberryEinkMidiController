@@ -1,8 +1,11 @@
 import eink
-display = eink.Eink()
+import midi
+#display = eink.Eink()
 
-display.init()
-#display.text("Hello World")
-#display.text("Hello Moon", x=35, y=25)
-display.clearBlack()
-display.update()
+#display.init()
+#display.clearWhite()
+#display.text()
+#display.update()
+
+midiHandle = midi.UsbMidiController()
+midiHandle.init()

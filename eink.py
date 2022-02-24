@@ -4,7 +4,7 @@ import digitalio
 import busio
 import board
 from adafruit_epd.epd import Adafruit_EPD
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 import subprocess
 
@@ -18,6 +18,8 @@ class Eink:
 	srcs = None
 
 	display = None
+	
+	logCount = 0
 
 
 	def init(self):
@@ -38,8 +40,16 @@ class Eink:
 	def lcdText(self, text, x=0, y=0, color=Adafruit_EPD.BLACK, textsize=2):
 		self.display.text(text, x, y, Adafruit_EPD.BLACK, size=textsize)
 		
-	#def text(self, text):
-	
+	def logText(self, text):
+		if self.logCount >= 4:
+			self.logCount = 0
+			self.clearWhite()
+			
+		self.display.text(text, 1, self.logCount * 18, Adafruit_EPD.BLACK, size=2)
+		self.logCount = self.logCount + 1
+		
+	def text(self):
+		print("None")
 		
 	def update(self):
 		self.display.display()
@@ -47,11 +57,7 @@ class Eink:
 	def test_func(self):
 
 		self.display.fill(Adafruit_EPD.WHITE)
-		image = Image.new("RGB", (self.display.width, self.display.height), color=self.WHITE)
-		draw = ImageDraw.Draw(image)
-
-		font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", self.FONTSIZE)
-
+		
 
 		uptime = subprocess.Popen(["uptime", "-p"],
 				       stdout=subprocess.PIPE,

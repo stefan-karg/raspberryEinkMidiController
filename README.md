@@ -3,7 +3,7 @@
 Trying to create a solution here for controlling a MIDI device without a display using a Raspberry PI with an E-ink display
 Using an e-ink display is more for fun here than to serve a purpose. Personally I like the technology a lot, so I wanted to play around with it. It's fascinating, that they keep the content even without power, see image below.
 
-![alt text](https://github.com/stefan-karg/raspberryEinkMidiController/blob/main/midipi.jpg "Picture of unplugged Raspberry with eink display")
+![alt text](https://github.com/stefan-karg/raspberryEinkMidiController/blob/main/midipi.png "Picture of unplugged Raspberry with eink display")
 
 
 ## Used hardware

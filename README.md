@@ -8,10 +8,10 @@ Trying to create a solution here for controlling a MIDI device without a display
 ## Required setup
 * Install Raspbian
 * For e-ink display:
-** Install circuitpython on Raspberry (https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
-** Install Adafruit EPaper library (https://learn.adafruit.com/2-13-in-e-ink-bonnet/usage)
-** Also install the 5x8 font binary as mentioned in the link
-** Install pillow library (also described in https://learn.adafruit.com/2-13-in-e-ink-bonnet/usage)
+  * Install circuitpython on Raspberry (https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
+  * Install Adafruit EPaper library (https://learn.adafruit.com/2-13-in-e-ink-bonnet/usage)
+  * Also install the 5x8 font binary as mentioned in the link
+  * Install pillow library (also described in https://learn.adafruit.com/2-13-in-e-ink-bonnet/usage)
 * For controlling MIDI:
-** Install python-rtmidi (https://pypi.org/project/python-rtmidi/)
+  * Install python-rtmidi (https://pypi.org/project/python-rtmidi/)
 
